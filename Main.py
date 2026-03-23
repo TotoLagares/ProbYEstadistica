@@ -52,19 +52,19 @@ def main():
                     break
 
                 lista.append(ast.literal_eval(fila))
-            lista_completa, media, medial, varianza, cuasiVarianza = tabla_guia1(lista)
+            lista_completa, media, mediana, varianza, cuasiVarianza = tabla_guia1(lista)
 
             print("")
             print( "\033[95m\033[1m Lista:  \033[0m")
             imprimir_tabla(tabla_valores,lista_completa)
             print("\033[95m\033[1m Datos:  \033[0m")
             print(f"\033[97m Media: {media} \033[0m")
-            print(f"\033[97m Medial: {medial} \033[0m")
+            print(f"\033[97m Mediana: {mediana} \033[0m")
             print(f"\033[97m Varianza:{varianza} \033[0m")
             print(f"\033[97m Cuasivarianza: {cuasiVarianza} \033[0m")
             print(f"\033[97m Desvio: {round(math.sqrt(varianza),4)} \033[0m")
             print(f"\033[97m Cuasidesvio: {round(math.sqrt(cuasiVarianza),4)} \033[0m")
-            print(f"\033[97m Coeficiente de variación (<%20 sirve / <%5 es totalmente representativo): %{(math.sqrt(varianza)/media)*100} \033[0m")
+            print(f"\033[97m Coeficiente de variación (<%20 sirve / <%5 es totalmente representativo): %{round((math.sqrt(varianza)/media)*100,4)} \033[0m")
 
             while True:
                 print("")
@@ -79,17 +79,17 @@ def main():
                     if eleccion_extra == "-1":
                         break
                     if eleccion_extra == "1":
-                        intervalo = input("\033[95m\033[1m Ingresa en formato lista ambos valores del intervalo, EL PARAMETRO X> primero (-1 si no tiene restrcción en alguno)(ej: x<10 = [10,-1]): \033[0m")
+                        intervalo = input("\033[95m\033[1m Ingresa en formato lista ambos valores del intervalo, EL PARAMETRO X> primero (-1 si no tiene restrcción en alguno)(ej: x>10 = [10,-1]): \033[0m")
                         lista_intervalos= ast.literal_eval(intervalo)
 
                         print("")
-                        print(f"\033[95m\033[1m Porcentaje del intervalo = %{round(porcentajes_intervalos(lista_completa,lista_intervalos)*100,4)} \033[0m")
+                        print(f"\033[97m\033[1m Porcentaje del intervalo = %{round(porcentajes_intervalos(lista_completa,lista_intervalos)*100,4)} \033[0m")
                     elif eleccion_extra == "2":
                         fractil = input("\033[95m\033[1m Ingresa en formato lista ambos valores del calculo del fractil (k=nro fractil, m=partes del fractil [cuartiles m=4 / deciles m=10 / percentiles m=100]) ([k,m]): \033[0m")
                         k= ast.literal_eval(fractil)[0]
                         m= ast.literal_eval(fractil)[1]
                         print("")
-                        print(f"\033[95m\033[1m (D,C,P){k} = %{round(calc_fractiles(lista_completa,k,m), 4)} \033[0m")
+                        print(f"\033[97m\033[1m (D,C,P){k} = %{round(calc_fractiles(lista_completa,k,m), 4)} \033[0m")
                 else:
                     break
 
