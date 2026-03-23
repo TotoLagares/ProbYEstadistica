@@ -45,13 +45,13 @@ def main():
         eleccion = input("\033[97m Escribir opcion: ")
 
         if eleccion == "1":
-            lista=[[20,30,1],[30,40,15],[40,50,39],[50,60,32],[60,70,11],[70,80,2]]
-            #while True:
-             #   fila= input( "\033[95m\033[1m Ingresa cada fila de valores con el formato [Li,Ld,fai] (-1 si ya cargaste todas): \033[0m")
-              #  if fila.strip() == "-1":
-               #     break
+            lista=[]
+            while True:
+                fila= input( "\033[95m\033[1m Ingresa cada fila de valores con el formato [Li,Ld,fai] (-1 si ya cargaste todas): \033[0m")
+                if fila.strip() == "-1":
+                    break
 
-                #lista.append(ast.literal_eval(fila))
+                lista.append(ast.literal_eval(fila))
             lista_completa, media, medial, varianza, cuasiVarianza = tabla_guia1(lista)
 
             print("")
