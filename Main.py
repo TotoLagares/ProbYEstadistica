@@ -65,6 +65,7 @@ def main():
             print(f"\033[97m Desvio: {round(math.sqrt(varianza),4)} \033[0m")
             print(f"\033[97m Cuasidesvio: {round(math.sqrt(cuasiVarianza),4)} \033[0m")
             print(f"\033[97m Coeficiente de variación (<%20 sirve / <%5 es totalmente representativo): %{round((math.sqrt(varianza)/media)*100,4)} \033[0m")
+            print(f"\033[97m Cuasi-Coeficiente de variación (<%20 sirve / <%5 es totalmente representativo): %{round((math.sqrt(cuasiVarianza) / media) * 100, 4)} \033[0m")
 
             while True:
                 print("")

@@ -115,10 +115,10 @@ def calc_Ai(lista):
 
 def calc_mediana(lista,n):
     nro_medio= n/2
-    lista_medial= []
+    lista_copia= []
     cont=0
     for i in lista:
-        if (nro_medio > i[0] and nro_medio <= i[1]):
+        if nro_medio<=i[3]:
             lista_medial = i.copy()
             break
         cont+=1
